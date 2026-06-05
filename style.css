@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0099ff; /* Azul da sua imagem */
+}
+
+.container {
+    position: relative;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .card {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    border: 10px solid #fff;
+    border-radius: 20px;
+    transform: translateX(calc(50px * var(--i))) rotate(calc(-5deg * var(--i)));
+    z-index: calc(10 - var(--i));
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Efeito ao passar o mouse no card */
+.container:hover .card {
+    transform: translateX(calc(150px * var(--i))) rotate(0deg);
+}
+
+.container .card:hover {
+    z-index: 100;
+    transform: translateX(calc(150px * var(--i))) scale(1.25);
+}
+
+.container .card .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.container .card .content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Detalhes que aparecem no hover */
+.container .card .content .details {
+    position: absolute;
+    bottom: -100px; /* Escondido inicialmente */
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.container .card:hover .content .details {
+    bottom: 0;
+}
+
+.details h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.2em;
+    text-align: center;
+}
+
+.details h2 span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #0099ff;
+}
